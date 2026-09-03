@@ -1,0 +1,56 @@
+/*Mobile first layout*/
+.wrapper{
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    min-height: 98vh; /*container alltid samma höjd som viewport*/
+    background-color: blanchedalmond;
+}
+
+header, footer {
+    background-color: lightslategray;
+}
+
+header, footer{
+    /*Centrerar element horisontellt*/
+    display: flex;
+    justify-content: center;
+    
+}
+/*Påverkar bara ul som child till nav*/
+nav > ul{
+    /*Vertikal meny*/
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    
+    width: 100%;
+
+    padding: 0;/*Tar bort standardpadding från listan*/
+    margin: 0;/*Tar bort standardmargin från listan*/
+}
+nav > ul > li{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    border: 1px black solid;
+    border-bottom: none;
+}
+nav > ul > li:last-child{
+    /*En lösning för att inte ha tjocka kantlinjer mitt i menyn*/
+    border-bottom: 1px black solid;
+}
+article{
+    border: 1px black solid;
+}
+
+
+
+/*För större enheter och desktop
+@media (min-width: 768px){
+    .wrapper{
+        
+    }
+}
+*/
+
+/*Flexbox för article i desktopview*/

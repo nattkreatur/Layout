@@ -1,0 +1,7 @@
+[ ]Ändra titel
+[ ]Skapa grid för layout
+[ ]Flexbox för navigation
+[ ]Kantlinjer till alla viktiga element
+[ ]
+[ ]
+[ ]
