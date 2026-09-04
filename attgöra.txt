@@ -1,7 +1,0 @@
-[ ]Ändra titel
-[x]Skapa grid för layout
-[x]Flexbox för navigation
-[x]Kantlinjer till alla viktiga element
-[x]Behövs nog flexbox för article+bild också
-[ ]extra meny och extra article på Artikelsidan
-[ ]

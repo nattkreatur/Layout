@@ -15,7 +15,7 @@ header, footer{
     background-color: lightslategray;
 }
 /*Påverkar bara ul som child till nav*/
-nav > ul{
+nav > ul, main > nav > ul{
     /*Vertikal meny*/
     list-style: none;
     display: flex;
@@ -31,20 +31,31 @@ nav > ul > li{
     padding: 1rem;
     border: 1px black solid;
 }
-main > section{
-    /*Detta gäller primärt om man har bilder i section
+main > article, main > section > article{
+    /*Detta gäller primärt om man har bilder i article
     som på index och omoss*/
     display: flex;
     flex-direction: column;
 }
 img{
-    width: 50%;
+    /*Bilden är större i mobile för bättre användarupplevelse*/
+    max-width: 50%;
+    height: auto;
     padding-top: 1rem;
     margin: 0 auto; /*centrerar bilden*/
+    align-self: center; /*hindrar att bilden förvrängs*/
 }
-section,aside{
+/*Gäller främst idan omss*/
+article,aside{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     padding: 1rem;
     border: 1px black solid;
+}
+
+/*Gäller endast sidan artiklar*/
+#artiklar main > nav{
+    margin-top: 1rem;
 }
 
 /*För större enheter och desktop*/
@@ -57,16 +68,17 @@ section,aside{
         /*Knapparna täcker hela wrappern*/
         width: 100%;
     }
-    main > section, aside{
+    main > article, aside, main > section > article{
         display: flex;
         flex-direction: row;
+        /*margin här skriver över tidigare värden satta för mobile*/
         margin: 1rem;
-        /*kantlinje runt section enbart för desktop*/
+        /*kantlinje runt article enbart för desktop*/
         border: 1px black solid;
     }
     
     /*Dessa är för att snygga till avståndet mellan boxarna på Omoss-sidan*/
-    main > section{
+    main > article{
         margin-right: 0.5rem;
     }
     main > aside{
@@ -75,15 +87,17 @@ section,aside{
     img{
         /*Bild lite mindre för att undvika känslan att
         den "tar över" i desktop view*/
-        width: 35%;
+        max-width: 25%;
+        height: auto;
         padding: 2rem;
     }
-    /*specifikt för Om oss-sidan*/
-    #omoss main{
+    /*Gäller endast för Artiklar och Om oss*/
+    #omoss main, #artiklar main{
         display: flex;
         flex-direction: row;
     }
+    #artiklar main > nav{
+        margin-top: 1rem;
+        margin-right: 2rem;
+    }
 }
-
-
-/*Flexbox för article i desktopview*/
