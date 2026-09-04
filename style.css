@@ -1,20 +1,18 @@
 /*Mobile first layout*/
 .wrapper{
     display: grid;
+    /*content området ligger som 1fr för att det ska fyllas ut ordentligt*/
     grid-template-rows: auto auto 1fr auto;
     min-height: 98vh; /*container alltid samma höjd som viewport*/
     background-color: blanchedalmond;
+    border: 1px black solid;
 }
-
-header, footer {
-    background-color: lightslategray;
-}
-
 header, footer{
     /*Centrerar element horisontellt*/
     display: flex;
     justify-content: center;
-    
+    border: 1px black solid;
+    background-color: lightslategray;
 }
 /*Påverkar bara ul som child till nav*/
 nav > ul{
@@ -22,7 +20,6 @@ nav > ul{
     list-style: none;
     display: flex;
     flex-direction: column;
-    
     width: 100%;
 
     padding: 0;/*Tar bort standardpadding från listan*/
@@ -33,24 +30,60 @@ nav > ul > li{
     justify-content: center;
     padding: 1rem;
     border: 1px black solid;
-    border-bottom: none;
 }
-nav > ul > li:last-child{
-    /*En lösning för att inte ha tjocka kantlinjer mitt i menyn*/
-    border-bottom: 1px black solid;
+main > section{
+    /*Detta gäller primärt om man har bilder i section
+    som på index och omoss*/
+    display: flex;
+    flex-direction: column;
 }
-article{
+img{
+    width: 50%;
+    padding-top: 1rem;
+    margin: 0 auto; /*centrerar bilden*/
+}
+section,aside{
+    padding: 1rem;
     border: 1px black solid;
 }
 
-
-
-/*För större enheter och desktop
-@media (min-width: 768px){
-    .wrapper{
-        
+/*För större enheter och desktop*/
+@media (min-width: 600px){
+    nav > ul{
+        flex-direction: row;
+        justify-content:space-evenly
+    }
+    nav > ul > li{
+        /*Knapparna täcker hela wrappern*/
+        width: 100%;
+    }
+    main > section, aside{
+        display: flex;
+        flex-direction: row;
+        margin: 1rem;
+        /*kantlinje runt section enbart för desktop*/
+        border: 1px black solid;
+    }
+    
+    /*Dessa är för att snygga till avståndet mellan boxarna på Omoss-sidan*/
+    main > section{
+        margin-right: 0.5rem;
+    }
+    main > aside{
+        margin-left: 0.5rem;
+    }
+    img{
+        /*Bild lite mindre för att undvika känslan att
+        den "tar över" i desktop view*/
+        width: 35%;
+        padding: 2rem;
+    }
+    /*specifikt för Om oss-sidan*/
+    #omoss main{
+        display: flex;
+        flex-direction: row;
     }
 }
-*/
+
 
 /*Flexbox för article i desktopview*/
