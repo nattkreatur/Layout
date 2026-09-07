@@ -3,7 +3,7 @@
     display: grid;
     /*content området ligger som 1fr för att det ska fyllas ut ordentligt*/
     grid-template-rows: auto auto 1fr auto;
-    min-height: 98vh; /*container alltid samma höjd som viewport*/
+    min-height: 98vh; /*container lite mindre än viewport för att ge mer plats åt footer*/
     background-color: blanchedalmond;
     border: 1px black solid;
 }
