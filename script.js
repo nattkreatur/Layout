@@ -22,26 +22,27 @@ function createArticles(data) {
     data.produkter.forEach(produkt =>{
         const articleElement = document.createElement("article");
 
-        const titleElement = document.createElement("h2");
-        titleElement.textContent = produkt.namn;
+        let element = createElement("h2", produkt.namn);
+        articleElement.appendChild(element);
 
-        const contentElement = document.createElement("p");
-        contentElement.textContent = produkt.beskrivning;
+        element = createElement("p", produkt.beskrivning);
+        articleElement.appendChild(element);
 
+        //Bild har egen hantering --> Resten sköts med createElement()
         const imageElement = document.createElement("img");
         imageElement.src = produkt.bild;
-
-        const priceElement = document.createElement("p");
-        priceElement.textContent = produkt.pris + ":-";
-        
-        articleElement.appendChild(titleElement);
-        articleElement.appendChild(contentElement);
+        imageElement.alt = "Bild på " + produkt.typ;
         articleElement.appendChild(imageElement);
-        articleElement.appendChild(priceElement);
 
+        element = createElement("p", produkt.pris + ":-");
+        articleElement.appendChild(element);
         sectionRef.appendChild(articleElement);
-
-    })
+    });
+}
+function createElement(el, text){
+    const element = document.createElement(el);
+    element.textContent = text;
+    return element;
 }
 
 init();
